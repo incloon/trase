@@ -21,12 +21,10 @@ jobs:
         run: mkdir build_dir
 
       - name: cmake configure
-        run: cmake .. -DCMAKE_BUILD_TYPE=Debug -Dtrase_BUILD_OPENGL:BOOL=FALSE
-        working-directory: build_dir
+        run: cmake -S . -B build_dir -DCMAKE_BUILD_TYPE=Debug -Dtrase_BUILD_OPENGL:BOOL=FALSE
 
       - name: cmake build
-        run: cmake --build . --parallel 2
-        working-directory: build_dir
+        run: cmake --build build_dir --parallel 2
 
       - name: cmake test
         run: ctest -j2 --output-on-failure

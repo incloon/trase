@@ -33,17 +33,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: add source
-        run: sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-
-      - name: apt update
-        run: sudo apt-get update
-
       - name: install dependencies
         run: sudo apt install libcurl4-openssl-dev
 
       - name: install compiler
-        run: sudo apt install ${{matrix.CC}}
+        run: sudo apt install ${{matrix.CC}} 
 
       - name: make build directory
         run: mkdir build_dir
