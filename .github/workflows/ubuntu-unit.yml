@@ -43,7 +43,7 @@ jobs:
         run: sudo apt install libcurl4-openssl-dev
 
       - name: install compiler
-        run: sudo apt install ${{matrix.CC}} ${{matrix.CXX}}
+        run: sudo apt install ${{matrix.CC}}
 
       - name: make build directory
         run: mkdir build_dir
